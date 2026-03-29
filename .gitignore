@@ -27,6 +27,7 @@ Manifest.toml
 .Rhistory
 
 .DS_Store
+.vscode
 .ipynb_checkpoints
 scripts/
 hw*sol*.*
