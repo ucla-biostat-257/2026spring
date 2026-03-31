@@ -7,7 +7,7 @@ title: Biostat 257
 
 BIOSTAT M257 tentative schedule and handouts (expect frequent updates)
 
-Location and time: CHS 41-268, Tuesday and Thursday @ 1pm-2:50am.
+Location and time: CHS 41-268, Tuesday and Thursday @ 1pm-2:50pm.
 
 BruinLearn: <https://bruinlearn.ucla.edu/courses/227142>
 
