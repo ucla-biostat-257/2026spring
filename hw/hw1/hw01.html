@@ -2394,7 +2394,7 @@ window.Quarto = {
 
 
 <p>Show machine information for reproducibility:</p>
-<div id="cell-2" class="cell" data-execution_count="5">
+<div id="cell-2" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">versioninfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Julia Version 1.12.5
@@ -2414,7 +2414,7 @@ Environment:
 </div>
 </div>
 <p>Activate environment:</p>
-<div id="cell-4" class="cell" data-execution_count="6">
+<div id="cell-4" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">activate</span>(<span class="fu">pwd</span>())</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">instantiate</span>()</span>
@@ -2448,7 +2448,7 @@ Environment:
 </div>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="7">
+<div id="cell-5" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span>, <span class="bu">LinearAlgebra</span>, <span class="bu">Random</span>, <span class="bu">Statistics</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -2520,7 +2520,7 @@ Environment:
 <ol type="1">
 <li><p>Implement the textbook algorithm for sample variance <span class="math display">\[
 s^2 = \frac{1}{n - 1} \sum_{i=1}^n (x_i - \bar{x})^2.
-\]</span> How many floating-point operations are needed to compute the sample variance uising this textbook (two-pass) algorithm?</p></li>
+\]</span> How many floating-point operations are needed to compute the sample variance using this textbook (two-pass) algorithm?</p></li>
 <li><p>Implement the one-pass algorithm for sample variance <span class="math display">\[
 s^2 = \frac{1}{n - 1} \left( \sum_{i=1}^n x_i^2 - n \bar{x}^2 \right).
 \]</span> How many floating-point operations are needed to compute the sample variance using this one-pass algorithm?</p></li>
