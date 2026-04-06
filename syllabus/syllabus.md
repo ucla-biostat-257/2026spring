@@ -26,7 +26,7 @@ Office hours: Tue @ 3pm-4pm, or by appointment.
 
 Tong Zhu <toz015@ucla.edu>
 
-Office hours: Monday 11-1 @ Geology 5631.
+Office hours: Monday 12-1 @ Geology 5631, Wednesday 5-6 @ [Zoom](https://ucla.zoom.us/j/7611378421).
 
 ### Course Topics
 
