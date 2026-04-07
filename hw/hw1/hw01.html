@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Student Name and UID">
-<meta name="dcterms.date" content="2026-04-02">
+<meta name="dcterms.date" content="2026-04-07">
 
 <title>Biostat/Biomath M257 Homework 1</title>
 <style>
@@ -2354,6 +2354,7 @@ window.Quarto = {
   <li><a href="#q4.-sample-variance-20-points" id="toc-q4.-sample-variance-20-points" class="nav-link" data-scroll-target="#q4.-sample-variance-20-points">Q4. Sample variance (20 points)</a></li>
   <li><a href="#q5.-woodbury-formula-12-points" id="toc-q5.-woodbury-formula-12-points" class="nav-link" data-scroll-target="#q5.-woodbury-formula-12-points">Q5. Woodbury formula (12 points)</a></li>
   <li><a href="#q6.-triangular-matrix-and-orthogonal-matrix-18-points" id="toc-q6.-triangular-matrix-and-orthogonal-matrix-18-points" class="nav-link" data-scroll-target="#q6.-triangular-matrix-and-orthogonal-matrix-18-points">Q6. Triangular matrix and orthogonal matrix (18 points)</a></li>
+  <li><a href="#q7.-ai-assistant" id="toc-q7.-ai-assistant" class="nav-link" data-scroll-target="#q7.-ai-assistant">Q7. AI assistant</a></li>
   </ul>
 </nav>
 </div>
@@ -2381,7 +2382,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 2, 2026</p>
+      <p class="date">April 7, 2026</p>
     </div>
   </div>
   
@@ -2394,63 +2395,21 @@ window.Quarto = {
 
 
 <p>Show machine information for reproducibility:</p>
-<div id="cell-2" class="cell" data-execution_count="9">
+<div id="cell-2" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">versioninfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Julia Version 1.12.5
-Commit 5fe89b8ddc1 (2026-02-09 16:05 UTC)
-Build Info:
-  Official https://julialang.org release
-Platform Info:
-  OS: macOS (arm64-apple-darwin24.0.0)
-  CPU: 12 × Apple M2 Max
-  WORD_SIZE: 64
-  LLVM: libLLVM-18.1.7 (ORCJIT, apple-m2)
-  GC: Built with stock GC
-Threads: 8 default, 1 interactive, 8 GC (on 8 virtual cores)
-Environment:
-  JULIA_NUM_THREADS = 8
-  JULIA_EDITOR = code</code></pre>
-</div>
 </div>
 <p>Activate environment:</p>
-<div id="cell-4" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">activate</span>(<span class="fu">pwd</span>())</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">instantiate</span>()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # add packages if needed</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pkg.add([&quot;BenchmarkTools&quot;])</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">status</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-green-fg ansi-bold">  Activating</span> project at `~/Documents/github.com/ucla-biostat-257/2026spring/hw/hw1`
-</pre>
+<div id="cell-4" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">activate</span>(<span class="fu">pwd</span>())</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">instantiate</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # add packages if needed</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pkg.add([&quot;BenchmarkTools&quot;])</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">status</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<div class="cell-output cell-output-stdout">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-green-fg ansi-bold">Status</span> `~/Documents/github.com/ucla-biostat-257/2026spring/hw/hw1/Project.toml`
-
-  <span class="ansi-bright-black-fg">[6e4b80f9] </span>BenchmarkTools v1.7.0
-
-  <span class="ansi-bright-black-fg">[7073ff75] </span>IJulia v1.34.4
-
-  <span class="ansi-bright-black-fg">[bdcacae8] </span>LoopVectorization v0.12.173
-
-  <span class="ansi-bright-black-fg">[91a5bcdd] </span>Plots v1.41.6
-
-  <span class="ansi-bright-black-fg">[f27b6e38] </span>Polynomials v4.1.1
-
-  <span class="ansi-bright-black-fg">[37e2e46d] </span>LinearAlgebra v1.12.0
-
-  <span class="ansi-bright-black-fg">[9a3f8284] </span>Random v1.11.0
-</pre>
-</div>
-</div>
-</div>
-<div id="cell-5" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span>, <span class="bu">LinearAlgebra</span>, <span class="bu">Random</span>, <span class="bu">Statistics</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="cell-5" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">BenchmarkTools</span>, <span class="bu">LinearAlgebra</span>, <span class="bu">Random</span>, <span class="bu">Statistics</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="q1.-gitgithub" class="level2">
 <h2 class="anchored" data-anchor-id="q1.-gitgithub">Q1. Git/GitHub</h2>
@@ -2480,12 +2439,12 @@ Environment:
 <ol type="1">
 <li>Consider Julia function</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">g</span>(k)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> <span class="fl">5</span>k <span class="op">-</span> <span class="fl">1</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    k</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">g</span>(k)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> <span class="fl">5</span>k <span class="op">-</span> <span class="fl">1</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    k</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol type="a">
 <li>Use <code>@code_llvm</code> to find the LLVM bitcode of compiled <code>g</code> with <code>Int64</code> input.<br>
 </li>
@@ -2495,23 +2454,23 @@ Environment:
 </li>
 <li>Read Julia documentation on <code>@fastmath</code> and repeat the questions 1-3 on the function</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">g_fastmath</span>(k)  </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="pp">@fastmath</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>  </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> <span class="fl">5</span>k <span class="op">-</span> <span class="fl">1</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    k</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">g_fastmath</span>(k)  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="pp">@fastmath</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> <span class="fl">5</span>k <span class="op">-</span> <span class="fl">1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    k</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="5" type="a">
 <li>Explain what does the macro <code>@fastmath</code> do? And why are the bitcodes for <code>g</code> and <code>g_fastmath</code> with <code>Float64</code> input different? (Hint: Q2)</li>
 </ol>
 <ol start="2" type="1">
 <li>Benchmark the following two codes</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">:</span><span class="fl">10</span><span class="op">^</span><span class="fl">8</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">sum</span>(<span class="op">$</span>x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">:</span><span class="fl">10</span><span class="op">^</span><span class="fl">8</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">sum</span>(<span class="op">$</span>x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>and</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fu">collect</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">:</span><span class="fl">10</span><span class="op">^</span><span class="fl">8</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">sum</span>(<span class="op">$</span>y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fu">collect</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">:</span><span class="fl">10</span><span class="op">^</span><span class="fl">8</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@benchmark</span> <span class="fu">sum</span>(<span class="op">$</span>y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Explain the difference in performance.</p>
 </section>
 <section id="q4.-sample-variance-20-points" class="level2">
@@ -2526,8 +2485,8 @@ s^2 = \frac{1}{n - 1} \left( \sum_{i=1}^n x_i^2 - n \bar{x}^2 \right).
 \]</span> How many floating-point operations are needed to compute the sample variance using this one-pass algorithm?</p></li>
 <li><p>Generate data by</p></li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">257</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">rand</span>(<span class="fl">1_000_000</span>) <span class="op">.+</span> <span class="fl">1e8</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">257</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">rand</span>(<span class="fl">1_000_000</span>) <span class="op">.+</span> <span class="fl">1e8</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>and benchmark the two-pass and one-pass algorithms. Memory allocations should be zero.</p>
 <ol start="4" type="1">
 <li><p>Display the results of the two-pass and one-pass algorithms on this test data. Any surprises? Explain what you found.</p></li>
@@ -2564,6 +2523,11 @@ s^2 = \frac{1}{n - 1} \left( \sum_{i=1}^n x_i^2 - n \bar{x}^2 \right).
 <li><p>An orthogonal upper (lower) triangular matrix is diagonal. (You just need to prove this.)</p></li>
 <li><p>The product of two orthogonal matrices is orthogonal.</p></li>
 </ol>
+</section>
+<section id="q7.-ai-assistant" class="level2">
+<h2 class="anchored" data-anchor-id="q7.-ai-assistant">Q7. AI assistant</h2>
+<p>Which AI assistants (e.g., GitHub Copilot) do you use when working on this assignment? Which AI model (e.g., GPT-5 mini, GPT-5, Claude Sonnet 4.5) does the AI assistant use? How do you use them? Do you think they help improve your productivity?</p>
+<p>Give 5 instances where AI model gave incorrect or misleading answers. You can use screenshots or copy-paste the Q&amp;A.</p>
 </section>
 
 </main>

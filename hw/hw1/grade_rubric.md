@@ -1,6 +1,6 @@
 *Name XXX*
 
-## Overall Grade: ???/136
+## Overall Grade: ???/146
 
 ### Late penalty
 
@@ -14,7 +14,7 @@
 
 -   Is the report clear (whole sentences, typos, grammar)? Do readers have a clear idea what's going on and how are results produced by just reading the report? 
 
-### Completeness, correctness and efficiency of solution: ??/86
+### Completeness, correctness and efficiency of solution: ??/96
 
 - Q2 (??/18)
 
@@ -25,6 +25,8 @@
 - Q5 (??/12)
 
 - Q6 (??/18)
+
+- Q7 (??/10)
 
 ### Usage of Git: ??/10
 
@@ -46,10 +48,10 @@
 
 - Rule (1). Four space indenting rule. 
 
-- Rule (2). 92 charcter rule.
+- Rule (2). 92 character rule.
 
 - Rule (3). Space after comma rule.
 
 - Rule (4). No space before comma rule.
 
-- Rule (5). Spae around binary operator rule.
+- Rule (5). Space around binary operator rule.
